@@ -13,7 +13,7 @@ jobs:
       JFROG_CLI_LOG_LEVEL: 'DEBUG'
       OIDC_AUDIENCE: 'jfrog-github'
       OIDC_PROVIDER: 'jfrog-github'
-      PLATFORM_REPO: 'jordanta-npm-virtual'
+      PLATFORM_REPO: 'jordanta-npm-remote'
      steps:
        - name: Checkout
          uses: actions/checkout@v3
@@ -25,6 +25,7 @@ jobs:
          uses: jfrog/setup-jfrog-cli@v3
          env:  
            JF_URL: ${{ secrets.JF_URL }}
+             JF_PROJECT: dev1
          with:
            oidc-provider-name: jfrog-github
            oidc-audience: jfrog-github
