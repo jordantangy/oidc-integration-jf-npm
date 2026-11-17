@@ -24,13 +24,13 @@ jobs:
          uses: jfrog/setup-jfrog-cli@v3
          env:  
            JF_URL: ${{ secrets.JF_URL }}
-           JF_PROJECT: dev1
+           JF_PROJECT: {{project}}
          with:
-           oidc-provider-name: jfrog-github
-           oidc-audience: jfrog-github
+           oidc-provider-name: {{prodiver}}
+           oidc-audience: {{audience}}
 
        - name: Configure npm with JFrog
          run: |
-          jf npmc --repo-resolve=jordanta-npm-remote --repo-deploy=jordanta-npm-remote
+          jf npmc --repo-resolve=npm --repo-deploy=npm
        - name: Install dependencies
          run: jf npm i
